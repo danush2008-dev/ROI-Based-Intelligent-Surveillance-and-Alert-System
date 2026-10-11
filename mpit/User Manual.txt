@@ -1,0 +1,188 @@
+ROI-Based Intelligent Surveillance and Alert System
+User Manual
+
+---
+
+1. Overview
+
+---
+
+This project is a smart surveillance system that detects people entering a selected area (ROI - Region of Interest). When a person is detected inside this area, the system:
+
+* Plays an alarm sound
+* Captures and saves an image
+* Sends an email alert with the image attached
+
+This makes it useful for basic security and monitoring purposes.
+
+---
+
+2. Requirements
+
+---
+
+* Windows 10/11
+* Python 3.10 (important for compatibility)
+* Webcam or a video input
+* Internet connection (for email alerts)
+
+---
+
+3. Project Setup
+
+---
+
+Make sure your project folder looks like this:
+
+Project Folder/
+│── system.py
+│── requirements.txt
+│── Alarm/
+│     └── alarm.wav
+
+Note: A folder named "detected_photos" will be created automatically when the program runs.
+
+---
+
+4. Installation Steps
+
+---
+
+Step 1: Install Python 3.10
+Download it from the official Python website and make sure to check
+"Add Python to PATH" during installation.
+
+Step 2: Open terminal in your project folder
+
+Step 3: Create a virtual environment
+python -m venv myenv
+
+Step 4: Activate the environment
+myenv\Scripts\activate
+
+Step 5: Install required libraries
+pip install -r requirements.txt
+
+Step 6: Install Microsoft Visual C++ Redistributable
+Download from: https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+---
+
+5. Email Configuration
+
+---
+
+The system sends alerts using Gmail.
+
+Before running, update these values in system.py:
+
+SENDER_EMAIL → your Gmail address
+SENDER_PASSWORD → your Gmail App Password
+RECEIVER_EMAIL → email where alerts will be sent
+
+Important:
+
+* Do NOT use your normal Gmail password
+* Generate an App Password from your Google account settings
+
+---
+
+6. Running the Program
+
+---
+
+Run the following command:
+
+python system.py
+
+---
+
+7. How It Works
+
+---
+
+1. The system uses a YOLOv5 model to detect objects in real time.
+
+2. It captures video from your webcam.
+
+3. You define a region (ROI) by clicking on the screen:
+
+   * Left click to add points
+   * Right click to reset the shape
+
+4. The system detects objects like:
+
+   * Person
+   * Car
+   * Bus
+   * Truck
+
+5. When a person enters the selected area:
+
+   * An alarm sound is played
+   * The image is saved
+   * An email alert is sent with the image
+
+---
+
+8. Email Alert Logic
+
+---
+
+To avoid sending too many emails, a cooldown of 30 seconds is used.
+This means the system will wait before sending another alert.
+
+---
+
+9. Output
+
+---
+
+* Images are saved in the "detected_photos" folder
+* Alarm sound plays when a person is detected
+* Email alert is sent to the receiver
+
+---
+
+10. Controls
+
+---
+
+* Press 'q' to exit the program
+* Left click to draw ROI
+* Right click to reset ROI
+
+---
+
+11. Common Issues
+
+---
+
+If torch gives an error:
+
+* Make sure you are using Python 3.10
+* Install Visual C++ Redistributable
+
+If email is not sent:
+
+* Check your App Password
+* Make sure internet is working
+
+If detection is not accurate:
+
+* Ensure proper lighting
+* Keep the person clearly visible
+
+---
+
+12. Notes
+
+---
+
+* Keep your email credentials private
+* This project is mainly for educational purposes
+* Can be extended for real-world security systems
+
+---
+
+## End of Manual

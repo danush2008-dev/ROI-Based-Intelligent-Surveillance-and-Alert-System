@@ -1,0 +1,41 @@
+# ── Virtual environment ────────────────────
+myenv/
+
+# ── Credentials (NEVER commit) ────────────
+.env
+
+# ── Python bytecode ───────────────────────
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Evidence and runtime artifacts ────────
+events.db
+evidence/
+detected_photos/
+demo_output.mp4
+rois.json
+
+# ── IDE / editor ──────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS files ──────────────────────────────
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Large test video
+mpit/sample out for testing.avi
+
+# Python virtual environment
+mpit/myenv/
+
+# Python cache files
+mpit/__pycache__/
+mpit/.pytest_cache/
+
+# Environment variables and secrets
+mpit/.env
